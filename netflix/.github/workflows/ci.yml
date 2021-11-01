@@ -1,0 +1,19 @@
+name: Music API CI
+
+on: [push]
+
+jobs:
+  run-tests:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-checkout@v2
+        with:
+          python-version: 3.9
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest
+
+
